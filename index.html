@@ -24,9 +24,46 @@
             align-items: center;
             margin-top: 50px;
         }
-        .left-panel img {
-            width: 400px;
+        .left-panel {
+            position: relative;
         }
+
+        /*.left-panel img {
+            width: 400px;
+        }*/
+
+        .background-img {
+            height: 550px;
+            display: block;
+        }
+
+
+        .top-img {
+            height: 502px;
+            width: 240px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-32%, -49%);
+        }
+
+        .left-panel img:not(:first-child) {
+            opacity: 0; /* Hide them initially */
+            transition: opacity 1.5s ease-in-out;
+            animation: fade 12s infinite;
+        }
+
+        .left-panel img:nth-child(2) { animation-delay: 3s; }
+        .left-panel img:nth-child(3) { animation-delay: 6s; }
+        .left-panel img:nth-child(4) { animation-delay: 9s; }
+
+        @keyframes fade {
+            0%, 25% { opacity: 1; }
+            30%, 100% { opacity: 0; }
+        }
+
+
+
         .right-panel {
             width: 350px;
             border: 1px solid #dbdbdb;
@@ -105,8 +142,12 @@
 </head>
 <body>
 <div class="container">
-    <div class="left-panel">
-        <img src="insta-clone.png" alt="Instagram Preview">
+    <div class="left-panel me-4">
+        <img src="./img/insta-phone.png" class="background-img" alt="Instagram Preview">
+        <img src="./img/wallpaper1.png" class="top-img" alt="Instagram Preview">
+        <img src="./img/wallpaper2.png" class="top-img" alt="Instagram Preview">
+        <img src="./img/wallpaper3.png" class="top-img" alt="Instagram Preview">
+        <img src="./img/wallpaper4.png" class="top-img" alt="Instagram Preview">
     </div>
     <div class="right-side">
         <div class="right-panel">
@@ -122,7 +163,7 @@
             <button class="facebook-login"><img src="/img/facebook.png" alt="">&nbsp;Log in with Facebook</button>
             <div class="pb-4"><a href="#" class="forgot-password">Forgot password?</a></div>
         </div>
-        <div class="right-panel">
+        <div class="right-panel mt-2">
             <div class="separator justify-content-center">
                 <span>Don't have an account? <a>Sign up</a></span>
             </div>
